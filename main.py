@@ -32,16 +32,8 @@ def adaugare_angajati():
 
 def main():
     """ Functia de main a proiectului. Reprezinta meniul principal"""
-    dict_optiuni = {
-
-        "1": vizualizare,
-        "2": informatii_firma,
-        "3": adaugare_angajati,
-        "4": sys.exit
-    }
 
     # Apelarea functiei load_angajati pentru a incarca datele din fisier in baza curenta de date
-    Angajat.load_angajati("angajati.csv")
     while True:
         print(35 * "=")
         print("Meniu".center(35))
@@ -49,12 +41,20 @@ def main():
         print("1. Vizualizare\n2. Informatii despre firma\n3. Adaugare angajati\n4. Iesire")
         print(35 * "=")
 
-        optiune = input("Introduceti optiune: ")
         # Apelarea optiunii corespunzatoare input-ului
-        if optiune in dict_optiuni:
-            dict_optiuni[optiune]()
-        else:
-            print("Nu ati introdus o optiune valida.")
+        match input("Introduceti optiune: "):
+            case "1":
+                vizualizare()
+            case "2":
+                informatii_firma()
+            case "3":
+                adaugare_angajati()
+            case "4":
+                sys.exit()
+            case _:
+                print("Nu ati introdus o optiune valida")
+
+
 
 if __name__ == "__main__":
     main()
