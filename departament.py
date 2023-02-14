@@ -1,5 +1,5 @@
 from datetime import datetime
-
+from DataBase_Connection import *
 
 class Departament:
     # Variabila de clasa care va contine obiecte de tip Departament
