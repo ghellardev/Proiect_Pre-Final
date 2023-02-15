@@ -69,11 +69,14 @@ class Departament:
 
     def find_all_in_dep(self):
         Departament.creare_dict_dep()
-        print(35 * "=")
-        print(self.workdep.center(35))
-        print(35 * "=")
+        print(40 * "=")
+        print(self.workdep.center(40))
+        print(40 * "=")
         for i in Date_Angajati.find({"Departament": self.workdep}, {"_id": 0}):
             for attr, value in i.items():
-                print(f"{attr}: {value}")
-            print(35 * "=")
+                if attr != "Data":
+                    print(f"{attr}: {value}")
+                else:
+                    print(f"{attr}: {value.date()}")
+            print(40 * "=")
         # input("Press return to continue...")

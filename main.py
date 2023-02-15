@@ -9,7 +9,7 @@ def vizualizare():
     2. Vizualizarea angajatilor dintr-un departament
     3. Iesire la meniul principal
     """
-
+    # Functii pt asta == DONE
     pass
 
 
@@ -36,15 +36,16 @@ def main():
     """ Functia de main a proiectului. Reprezinta meniul principal"""
 
     while True:
-        print(35 * "=")
+        print(40 * "=")
         print("Meniu".center(35))
-        print(35 * "=")
+        print(40 * "=")
         print("1. Vizualizare\n2. Informatii despre firma\n3. Adaugare angajati\n4. Iesire")
-        print(35 * "=")
+        print(40 * "=")
 
         # Apelarea optiunii corespunzatoare input-ului
         match input("Introduceti optiune: "):
             case "1":
+                Departament.find_all()
                 vizualizare()
             case "2":
                 informatii_firma()
