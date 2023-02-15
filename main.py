@@ -35,7 +35,6 @@ def adaugare_angajati():
 def main():
     """ Functia de main a proiectului. Reprezinta meniul principal"""
 
-    # Apelarea functiei load_angajati pentru a incarca datele din fisier in baza curenta de date
     while True:
         print(35 * "=")
         print("Meniu".center(35))
@@ -43,7 +42,6 @@ def main():
         print("1. Vizualizare\n2. Informatii despre firma\n3. Adaugare angajati\n4. Iesire")
         print(35 * "=")
 
-        Angajat.load_angajati()
         # Apelarea optiunii corespunzatoare input-ului
         match input("Introduceti optiune: "):
             case "1":
