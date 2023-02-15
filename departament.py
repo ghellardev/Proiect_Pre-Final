@@ -9,8 +9,12 @@ class Departament:
     # Variabila de clasa care va contine maparea intre "indexul unui departament si denumirea acestuia"
     dict_optiuni = {}
 
+    def __init__(self, workdep: str):
+        """ Constructorul clasei Departament. """
+        self.workdep = workdep
+
     @classmethod
-    def departamente(cls):
+    def departamente(cls) -> None:
         cursor = Date_Angajati.find({}, {"_id": 0, "Departament": 1})
         [Departament.lista_departamente.append(i["Departament"]) for i in cursor if
          i["Departament"] not in Departament.lista_departamente]
@@ -18,7 +22,7 @@ class Departament:
         #     print(dep)
 
     @classmethod
-    def creare_dict_dep(cls):
+    def creare_dict_dep(cls) -> None:
         Departament.departamente()
         counter = 0
         for i in Departament.lista_departamente:
@@ -26,7 +30,7 @@ class Departament:
             Departament.dict_optiuni[str(counter)] = i
 
     @classmethod
-    def alegere_dep(cls):
+    def alegere_dep(cls) -> str:
         Departament.creare_dict_dep()
         while True:
             for key, val in Departament.dict_optiuni.items():
@@ -38,13 +42,9 @@ class Departament:
             else:
                 print("Nu ati introdus o optiune valida.")
 
-    def __init__(self, workdep):
-        """ Constructorul clasei Departament. """
-        self.workdep = workdep
-
     # Metoda folosita pentru a introduce o valoare float valida
     @classmethod
-    def float_input(cls):
+    def float_input(cls) -> float:
         try:
             print("Introduceti salariul: ")
             return float(input())
@@ -53,21 +53,14 @@ class Departament:
 
     # Metoda folosita pentru a valida data introdusa
     @classmethod
-    def data_input(cls):
+    def data_input(cls) -> datetime:
         try:
             return datetime.strptime(input('Introduceti data de forma dd-mm-yyyy: '), "%d-%m-%Y")
         except ValueError:
             print("Data nu este valida!")
             return Departament.data_input()
 
-    @classmethod
-    def find_all(cls):
-        Departament.creare_dict_dep()
-        for dep in Departament.dict_optiuni.values():
-            Departament(dep).find_all_in_dep()
-        input("Press return to continue...")
-
-    def find_all_in_dep(self):
+    def find_all_in_dep(self) -> None:
         Departament.creare_dict_dep()
         print(40 * "=")
         print(self.workdep.center(40))
@@ -82,7 +75,12 @@ class Departament:
         # input("Press return to continue...")
 
     @classmethod
-    def add_departament(cls):
+    def find_all(cls) -> None:
+        Departament.creare_dict_dep()
+        for dep in Departament.dict_optiuni.values():
+            Departament(dep).find_all_in_dep()
+        input("Press return to continue...")
+
+    @classmethod
+    def add_departament(cls) -> None:
         Departament.lista_departamente.append(input("Adaugati departament nou: "))
-
-

@@ -4,27 +4,23 @@ from departament import Departament
 
 
 def vizualizare():
-    """ Reprezinta submeniul de vizualizare, care contine urmatoarele optiuni:
-    1. Vizualizare a tuturor angajatilor in functie de departament
-    2. Vizualizarea angajatilor dintr-un departament
-    3. Iesire la meniul principal
-    """
-    # Functii pt asta == DONE
+    # TODO vizualizare() -> Erin + Alexandra
+    # TODO 1. Vizualizare a tuturor angajatilor in functie de departament -> Departament.find_all()
+    # TODO 2. Vizualizarea angajatilor dintr-un departament -> Departament(Departament.alegere_dep()).find_all_in_dep()
+    # TODO 3. Iesire la meniul principal
     pass
 
 
 def informatii_firma():
-    """ Reprezinta submeniul de informatii despre firma, care contine urmatoarele optiuni:
-    1. Afisare medie salariala.
-    2. Afisare nr angajati/ departament
-    3. Afisare nr de angajati cu vechime mai mare de x ani.
-    4. iesire la meniul principal
-    """
+    # TODO informatii_firma() -> Simona + Ana
+    # TODO 1. Afisare medie salariala.
+    # TODO 2. Afisare nr angajati/ departament
+    # TODO 3. Afisare nr de angajati cu vechime mai mare de x ani.
+    # TODO 4. iesire la meniul principal
     pass
 
 
 def adaugare_angajati():
-
     Angajat(
         Departament.alegere_dep(),
         input("Introduceti numele angajatului: "),
@@ -39,15 +35,14 @@ def main():
 
     while True:
         print(40 * "=")
-        print("Meniu".center(35))
+        print("Meniu".center(40))
         print(40 * "=")
-        print("1. Vizualizare\n2. Informatii despre firma\n3. Adaugare angajati\n4. Iesire")
+        print("1. Vizualizare\n2. Informatii despre firma\n3. Adaugare departament\n4. Adaugare angajati\n5. Iesire")
         print(40 * "=")
 
         # Apelarea optiunii corespunzatoare input-ului
         match input("Introduceti optiune: "):
             case "1":
-                Departament("IT").find_all_in_dep()
                 vizualizare()
             case "2":
                 informatii_firma()
