@@ -10,3 +10,16 @@ class Angajat(Departament):
         self.job = job
         self.hiredate = hiredate
         self.__salary = salary
+
+    def add_angajat(self):
+        angajat_nou = {
+            "Departament": self.workdep,
+            "Nume": self.empname,
+            "Position": self.job,
+            "Data": self.hiredate,
+            "Salariu": self.__salary
+        }
+
+        Date_Angajati.insert_one(angajat_nou)
+
+

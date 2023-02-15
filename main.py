@@ -24,12 +24,14 @@ def informatii_firma():
 
 
 def adaugare_angajati():
-    """ Reprezinta functia de adaugare a angajatilor. Functia cere datele pentru crearea unui obiect
-    nou de tip angajat, il adauga in Angajat.lista_anagajati si face update la fisierul 'angajati.csv'.
-    * Nota: adaugarea se poate face si dintr-o functie dedicata din clasa de Angajat (in acest caz,
-    functia asta doar va apela functia creata in clasa Angajat, [update docstring])
-    """
-    pass
+
+    Angajat(
+        Departament.alegere_dep(),
+        input("Introduceti numele angajatului: "),
+        input("Introduceti pozitia angajat: "),
+        Departament.data_input(),
+        Departament.float_input()
+    ).add_angajat()
 
 
 def main():
@@ -45,7 +47,7 @@ def main():
         # Apelarea optiunii corespunzatoare input-ului
         match input("Introduceti optiune: "):
             case "1":
-                Departament.find_all()
+                Departament("IT").find_all_in_dep()
                 vizualizare()
             case "2":
                 informatii_firma()

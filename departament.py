@@ -46,19 +46,19 @@ class Departament:
     @classmethod
     def float_input(cls):
         try:
+            print("Introduceti salariul: ")
             return float(input())
         except ValueError:
-            print("Introduceti un numar:")
             return Departament.float_input()
 
     # Metoda folosita pentru a valida data introdusa
     @classmethod
-    def data_input(cls, data):
+    def data_input(cls):
         try:
-            return datetime.strptime(data, "%d-%m-%Y").date()
+            return datetime.strptime(input('Introduceti data de forma dd-mm-yyyy: '), "%d-%m-%Y")
         except ValueError:
             print("Data nu este valida!")
-            return None
+            return Departament.data_input()
 
     @classmethod
     def find_all(cls):
