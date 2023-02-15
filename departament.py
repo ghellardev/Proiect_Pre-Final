@@ -80,3 +80,9 @@ class Departament:
                     print(f"{attr}: {value.date()}")
             print(40 * "=")
         # input("Press return to continue...")
+
+    @classmethod
+    def add_departament(cls):
+        Departament.lista_departamente.append(input("Adaugati departament nou: "))
+
+

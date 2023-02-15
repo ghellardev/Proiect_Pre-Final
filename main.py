@@ -52,8 +52,10 @@ def main():
             case "2":
                 informatii_firma()
             case "3":
-                adaugare_angajati()
+                Departament.add_departament()
             case "4":
+                adaugare_angajati()
+            case "5":
                 sys.exit()
             case _:
                 print("Nu ati introdus o optiune valida")
