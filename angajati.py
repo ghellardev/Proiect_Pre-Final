@@ -1,10 +1,9 @@
-from departament import Departament
+from departament import *
+
 
 class Angajat(Departament):
-    # Variabila de clasa care va contine obiecte de tip Angajat
-    lista_angajati = []
 
-    def __init__(self, workdep, empname, job, hiredate, salary):
+    def __init__(self, workdep: str, empname: str, job: str, hiredate: datetime, salary: float):
         """ Constructorul clasei Angajat. """
         super().__init__(workdep)
         self.empname = empname
@@ -12,13 +11,12 @@ class Angajat(Departament):
         self.hiredate = hiredate
         self.__salary = salary
 
-    @ classmethod
-    def load_angajati(cls, nume_fisier):
-        """ Creeaza obiecte de tip Angajat si le adauga in lista_angajati, bazate
-        pe informatiile din fisierul nume_fisier. """
-        pass
-
-    @ classmethod
-    def update_fisier(cls):
-        """ Updateaza fisierul 'angajati.csv' cu informatiile actuale din lista_angajati. """
-        pass
+    def add_angajat(self) -> None:
+        angajat_nou = {
+            "Departament": self.workdep,
+            "Nume": self.empname,
+            "Position": self.job,
+            "Data": self.hiredate,
+            "Salariu": self.__salary
+        }
+        Date_Angajati.insert_one(angajat_nou)
