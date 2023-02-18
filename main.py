@@ -12,13 +12,28 @@ def vizualizare():
     pass
 
 def informatii_firma():
+
     """ Reprezinta submeniul de informatii despre firma, care contine urmatoarele optiuni:
     1. Afisare medie salariala.
     2. Afisare nr angajati/ departament
     3. Afisare nr de angajati cu vechime mai mare de x ani.
     4. iesire la meniul principal
     """
-    pass
+    match input("\n1. Afisare medie salariala"
+                "\n2. Afisare nr angajati/ departament"
+                "\n3. Afisare nr de angajati cu vechime mai mare de x ani"
+                "\n4.  iesire la meniul principal "):
+        case '1':
+            print("Introduceti departamentul dorit [* pentru toate]:")
+
+        case '2':
+            pass
+        case '3':
+            pass
+
+        case '4':
+            pass
+
 
 def adaugare_angajati():
     """ Reprezinta functia de adaugare a angajatilor. Functia cere datele pentru crearea unui obiect
