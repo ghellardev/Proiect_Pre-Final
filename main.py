@@ -1,7 +1,5 @@
 import sys
-from angajati import Angajat
-from departament import Departament
-
+from angajati import *
 
 def vizualizare():
     # TODO vizualizare() -> Erin + Alexandra
@@ -9,6 +7,19 @@ def vizualizare():
     # TODO 2. Vizualizarea angajatilor dintr-un departament -> Departament(Departament.alegere_dep()).find_all_in_dep()
     # TODO 3. Iesire la meniul principal
     pass
+
+
+
+def medie_salariala():
+    lsta_suma = []
+    dep = Departament.alegere_dep()
+    cursor = list(Date_Angajati.find({"Departament": dep}, {"_id": 0, "Salariu": 1}))
+    print(cursor)
+    for i in cursor:
+        lsta_suma.append(i['Salariu'])
+
+    print(f"Media salariala pe departamentul {dep} este: {sum(lsta_suma) / len(lsta_suma)}")
+
 
 
 def informatii_firma():
@@ -57,4 +68,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    #main()
+    medie_salariala()
