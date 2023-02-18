@@ -1,7 +1,5 @@
 import sys
-from angajati import Angajat
-from departament import Departament
-
+from angajati import *
 
 def vizualizare():
     # TODO vizualizare() -> Erin + Alexandra
@@ -18,6 +16,19 @@ def informatii_firma():
     # TODO 3. Afisare nr de angajati cu vechime mai mare de x ani.
     # TODO 4. iesire la meniul principal
     pass
+
+def angajat_pe_departament(dep):
+
+    nr_angajati = Date_Angajati.count_documents({"Departament":dep })
+    print(f'S-au gasit {nr_angajati} in Departamentul {dep}')
+    return nr_angajati
+def total_angajati():
+    Departament.creare_dict_dep()
+    nr_total= 0
+    for i in Departament.dict_optiuni.values():
+        print(i)
+        nr_total += angajat_pe_departament(i)
+    print(f'Numarul total de angajati este: {nr_total}')
 
 
 def adaugare_angajati():
@@ -44,6 +55,8 @@ def main():
         match input("Introduceti optiune: "):
             case "1":
                 vizualizare()
+                Departament.find_all()
+                total_angajati()
             case "2":
                 informatii_firma()
             case "3":
@@ -56,5 +69,8 @@ def main():
                 print("Nu ati introdus o optiune valida")
 
 
+
+
 if __name__ == "__main__":
     main()
+    # angajat_pe_departament()

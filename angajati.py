@@ -20,3 +20,5 @@ class Angajat(Departament):
             "Salariu": self.__salary
         }
         Date_Angajati.insert_one(angajat_nou)
+
+
