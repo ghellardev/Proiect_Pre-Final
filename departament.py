@@ -43,12 +43,12 @@ class Departament:
 
     # Metoda folosita pentru a introduce o valoare float valida
     @classmethod
-    def float_input(cls,mesaj_afisat) -> float:
+    def float_input(cls, mesaj_afisat) -> float:
         try:
             print(mesaj_afisat)
-            return float(input())
+            return round(float(input()), 2)
         except ValueError:
-            return Departament.float_input()
+            return Departament.float_input(mesaj_afisat)
 
     # Metoda folosita pentru a valida data introdusa
     @classmethod
@@ -71,7 +71,6 @@ class Departament:
                 else:
                     print(f"{attr}: {value.date()}")
             print(40 * "=")
-        # input("Press return to continue...")
 
     @classmethod
     def find_all(cls) -> None:

@@ -31,6 +31,34 @@ def vizualizare():
                 break
 
 
+def angajat():
+    while True:
+        clear()
+        match input("1. Adaugare angajat\n"
+                    "2. Stergere angajat\n"
+                    "3. Actualizare nume angajat\n"
+                    "4. Actualizare job angajat\n"
+                    "5. Actualizare salariu angajat\n"
+                    "6. Actualizare departament angajat\n"
+                    "7. Iesire la meniul principal\n"):
+            case "1":
+                adaugare_angajati()
+            case "2":
+                Angajat.del_angajat(input("Nume angajat: "))
+            case "3":
+                Angajat.update_nume(input("Nume angajat: "))
+            case "4":
+                Angajat.update_job(input("Nume angajat: "))
+            case "5":
+                Angajat.update_salariu(input("Nume angajat: "))
+            case "6":
+                Angajat.update_dep(input("Nume angajat: "))
+            case "7":
+                break
+            case _:
+                print("Nu ati introdus o optiune valida")
+
+
 def medie_salariala():
     lista_suma = []
     for dep in Departament.dict_optiuni.values():
@@ -105,7 +133,11 @@ def main():
         print(40 * "=")
         print("Meniu".center(40))
         print(40 * "=")
-        print("1. Vizualizare\n2. Informatii despre firma\n3. Adaugare departament\n4. Adaugare angajati\n5. Iesire")
+        print("1. Vizualizare\n"
+              "2. Informatii despre firma\n"
+              "3. Adaugare departament\n"
+              "4. Angajati\n"
+              "5. Iesire")
         print(40 * "=")
 
         # Apelarea optiunii corespunzatoare input-ului
@@ -117,7 +149,7 @@ def main():
             case "3":
                 Departament.add_departament()
             case "4":
-                adaugare_angajati()
+                angajat()
             case "5":
                 sys.exit()
             case _:
