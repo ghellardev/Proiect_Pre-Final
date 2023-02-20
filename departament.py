@@ -35,8 +35,7 @@ class Departament:
         while True:
             for key, val in Departament.dict_optiuni.items():
                 print(f"{key}. {val}")
-            print("  Alegeti un dep: ")
-            optiune = input()
+            optiune = input("  Alegeti un dep: ")
             if optiune in Departament.dict_optiuni:
                 return Departament.dict_optiuni[optiune]
             else:
@@ -44,9 +43,9 @@ class Departament:
 
     # Metoda folosita pentru a introduce o valoare float valida
     @classmethod
-    def float_input(cls) -> float:
+    def float_input(cls,mesaj_afisat) -> float:
         try:
-            print("Introduceti salariul: ")
+            print(mesaj_afisat)
             return float(input())
         except ValueError:
             return Departament.float_input()
