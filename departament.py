@@ -78,7 +78,6 @@ class Departament:
         Departament.creare_dict_dep()
         for dep in Departament.dict_optiuni.values():
             Departament(dep).find_all_in_dep()
-        input("Press return to continue...")
 
     @classmethod
     def add_departament(cls) -> None:
