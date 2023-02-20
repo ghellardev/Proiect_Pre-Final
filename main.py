@@ -9,6 +9,19 @@ def vizualizare():
     pass
 
 
+
+def medie_salariala():
+    lsta_suma = []
+    dep = Departament.alegere_dep()
+    cursor = list(Date_Angajati.find({"Departament": dep}, {"_id": 0, "Salariu": 1}))
+    print(cursor)
+    for i in cursor:
+        lsta_suma.append(i['Salariu'])
+
+    print(f"Media salariala pe departamentul {dep} este: {sum(lsta_suma) / len(lsta_suma)}")
+
+
+
 def informatii_firma():
     # TODO informatii_firma() -> Simona + Ana
     # TODO 1. Afisare medie salariala.
@@ -55,8 +68,6 @@ def main():
         match input("Introduceti optiune: "):
             case "1":
                 vizualizare()
-                Departament.find_all()
-                total_angajati()
             case "2":
                 informatii_firma()
             case "3":
@@ -69,8 +80,5 @@ def main():
                 print("Nu ati introdus o optiune valida")
 
 
-
-
 if __name__ == "__main__":
     main()
-    # angajat_pe_departament()
