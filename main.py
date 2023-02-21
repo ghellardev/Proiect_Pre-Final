@@ -3,18 +3,6 @@ from angajati import *
 from os import system, name
 
 
-# TODO TERM environment variable not set. -> fix
-
-def clear():
-    # for mac and linux
-    if name == 'posix':
-        _ = system('clear')
-
-    # for windows(here, os.name is 'nt')
-    else:
-        _ = system('cls')
-
-
 def vizualizare():
     while True:
         clear()
@@ -31,7 +19,7 @@ def vizualizare():
                 break
 
 
-def angajat():
+def vizualizare_angajati():
     while True:
         clear()
         match input("1. Adaugare angajat\n"
@@ -45,27 +33,33 @@ def angajat():
                 adaugare_angajati()
             case "2":
                 Angajat.del_angajat(input("Nume angajat: "))
+                input("Apasati enter pentru a continua...")
             case "3":
                 Angajat.update_nume(input("Nume angajat: "))
+                input("Apasati enter pentru a continua...")
             case "4":
                 Angajat.update_job(input("Nume angajat: "))
+                input("Apasati enter pentru a continua...")
             case "5":
                 Angajat.update_salariu(input("Nume angajat: "))
+                input("Apasati enter pentru a continua...")
             case "6":
                 Angajat.update_dep(input("Nume angajat: "))
+                input("Apasati enter pentru a continua...")
             case "7":
                 break
             case _:
                 print("Nu ati introdus o optiune valida")
 
 
-def medie_salariala():
-    lista_suma = []
-    for dep in Departament.dict_optiuni.values():
-        cursor = list(Date_Angajati.find({"Departament": dep}, {"_id": 0, "Salariu": 1}))
-        for i in cursor:
-            lista_suma.append(i['Salariu'])
-    print(f"Media salariala este: {round(sum(lista_suma) / len(lista_suma), 2)}")
+def clear():
+    # for mac and linux
+    if name == 'posix':
+        _ = system('clear')
+
+    # for windows(here, os.name is 'nt')
+    else:
+        _ = system('cls')
 
 
 def informatii_firma():
@@ -90,6 +84,15 @@ def informatii_firma():
                 input("Apasati enter pentru a continua...")
             case "5":
                 break
+
+
+def medie_salariala():
+    lista_suma = []
+    for dep in Departament.dict_optiuni.values():
+        cursor = list(Date_Angajati.find({"Departament": dep}, {"_id": 0, "Salariu": 1}))
+        for i in cursor:
+            lista_suma.append(i['Salariu'])
+    print(f"Media salariala este: {round(sum(lista_suma) / len(lista_suma), 2)}")
 
 
 def afisare_vechime(nr_ani: float):
@@ -126,8 +129,6 @@ def adaugare_angajati():
 
 
 def main():
-    """ Functia de main a proiectului. Reprezinta meniul principal"""
-
     while True:
         clear()
         print(40 * "=")
@@ -149,7 +150,7 @@ def main():
             case "3":
                 Departament.add_departament()
             case "4":
-                angajat()
+                vizualizare_angajati()
             case "5":
                 sys.exit()
             case _:
